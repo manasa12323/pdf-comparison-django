@@ -6,6 +6,14 @@
 <body>
     <h2>Upload Successful!</h2>
     <p>Your PDFs have been uploaded and saved.</p>
+    {% if result is not None %}
+        <h3>Comparison Result:</h3>
+        {% if result %}
+            <p style="color:green;">The PDFs are <strong>identical</strong>.</p>
+        {% else %}
+            <p style="color:red;">The PDFs are <strong>different</strong>.</p>
+        {% endif %}
+    {% endif %}
     <a href="{% url 'upload_pdf' %}">Upload more PDFs</a>
 </body>
 </html>
